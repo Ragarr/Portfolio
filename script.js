@@ -147,29 +147,35 @@ autocompleteContainer.addEventListener("mouseover", function (e) {
         );
     }
 });
-
+function updateCoincidences(e) {
+    if (e){
+        var input = e.target.value;
+    }
+    else{
+        input = "";
+    }
+    coincidentCommands = Object.keys(ALL_COMMANDS).filter(function (
+        command
+    ) {
+        // coincidencia de comandos (include sin case sensitive)
+        return command.toLowerCase().includes(input.toLowerCase());
+    });
+    if (input === "") {
+        console.log("input vacío");
+        coincidentCommands = Object.keys(ALL_COMMANDS);
+    }
+    selectedComand = 0;
+    autocompleteContainer.innerHTML = "";
+    coincidentCommands.forEach(function (comando) {
+        var listItem = document.createElement("li");
+        listItem.textContent = comando;
+        autocompleteContainer.appendChild(listItem);
+    });
+}
 // AL ESCRIIR EN EL INPUT, BUSCAR COMANDOS SIMILARES
 document
     .querySelector("#command-input")
-    .addEventListener("input", function (e) {
-        var input = e.target.value;
-        coincidentCommands = Object.keys(ALL_COMMANDS).filter(function (
-            command
-        ) {
-            // coincidencia de comandos (include sin case sensitive)
-            return command.toLowerCase().includes(input.toLowerCase());
-        });
-        if (input === "") {
-            coincidentCommands = Object.keys(ALL_COMMANDS);
-        }
-        selectedComand = 0;
-        autocompleteContainer.innerHTML = "";
-        coincidentCommands.forEach(function (comando) {
-            var listItem = document.createElement("li");
-            listItem.textContent = comando;
-            autocompleteContainer.appendChild(listItem);
-        });
-    });
+    .addEventListener("input", updateCoincidences);
 
 // AL HACER CLICK EN UN COMANDO, ESCIBIRLO EN EL INPUT
 autocompleteContainer.addEventListener("click", function (e) {
@@ -218,6 +224,7 @@ document
             }
             document.querySelector("#command-input").value = "";
             autocompleteContainer.innerHTML = "";
+            updateCoincidences();
         }
     });
 
