@@ -9,7 +9,8 @@ html {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .terminal {
@@ -27,7 +28,7 @@ html {
 }
 
 /* el unico p que hay en el terminal es el simbolo de >*/
-.terminal p {
+.terminal p{
     /* Fallback: Set a background color. */
     background-color: red;
 
@@ -81,6 +82,8 @@ html {
     width: 100%;
     align-items: flex-start;
     justify-content: flex-start;
+    scrollbar-width: none;
+    overflow: hidden;
 }
 
 .autocomplete-container {
@@ -94,6 +97,7 @@ html {
     max-width: 95%;
     overflow-y: auto;
     border-radius: 0px;
+    overflow-x: hidden; /* Esto oculta el scrollbar horizontal */
 }
 .autocomplete-container li {
     list-style-type: none;
@@ -130,4 +134,89 @@ html {
     /* Use the text as a mask for the background. */
     /* This will show the gradient as a text color rather than element bg. */
     margin: 12px 0 0 12px;
+}
+
+
+
+
+.top-bar {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+}
+.presentation{
+    margin-left: 3%;
+    margin-top: 1%;
+}
+.top-bar h1 {
+    /* Fallback: Set a background color. */
+    background-color: red;
+    font-size: 2em;
+
+    /* Create the gradient. */
+    background-image: linear-gradient(45deg, #f3ec78, #af4261);
+
+    /* Set the background size and repeat properties. */
+    background-size: 100%;
+    background-repeat: repeat;
+
+    /* Use the text as a mask for the background. */
+    /* This will show the gradient as a text color rather than element bg. */
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    margin: 0;
+    padding: 0;
+
+
+}
+.top-bar h2{
+    margin: 0;
+    padding: 0;
+    color: #ebebeb;
+    font-size: 1em;
+    font-family: "Cascadia Code", sans-serif;
+
+}
+
+
+
+.my-location{
+    color: #a7a7a7;
+    font-size: 1em;
+    font-family: "Cascadia Code", sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    margin-right: 3%;
+    margin-top: 2%;
+}
+#location-content{
+    display: flex;
+    flex-direction: row;
+
+}
+.my-location p{
+    margin: 0;
+    padding: 0;
+    color: #a7a7a7;
+    font-size: 1em;
+    font-family: "Cascadia Code", sans-serif;
+    width: fit-content;
+}
+#clock{
+    background-color: #212121;
+}
+#ubi {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    width: fit-content;
 }
