@@ -58,8 +58,13 @@ html {
     border: none; /* Sin borde */
     font-size: 1em;
     resize: none; /* No se puede redimensionar */
-    height: auto; /* Altura automática */
-    min-height: 50px; /* Altura mínima */
+    height: 1em; 
+    padding-top: 4px;
+    padding-left: 6px;
+    display: block;
+    border: none;
+    outline: none;
+    width: auto;
 }
 
 #command-input::placeholder {
@@ -77,15 +82,6 @@ html {
     justify-content: flex-start;
 }
 
-#command-input {
-    padding-top: 4px;
-    padding-left: 6px;
-    display: block;
-    border: none;
-    outline: none;
-    width: auto;
-}
-
 .autocomplete-container {
     color: #ebebeb;
     width: fit-content;
@@ -93,9 +89,10 @@ html {
     background-color: #333333;
     margin: 0 6px 0 6px;
     height: fit-content;
-    max-height: 70%;
+    max-height: 60%;
     max-width: 95%;
     overflow-y: auto;
+    border-radius: 5px;
 }
 .autocomplete-container li {
     list-style-type: none;

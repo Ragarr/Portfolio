@@ -2,15 +2,36 @@
 document.querySelector(".terminal").addEventListener("click", function () {
     document.querySelector("#command-input").focus();
 });
-
-window.onload = function() {
-    var textarea = document.getElementById('command-input');
+var textarea = document.getElementById('command-input');
     textarea.addEventListener('input', autoResize, false);
+function autoResize() {
+    let scalingFactor = 1;
+    // count number of characters in the textarea and the widht they take
+    // divide the width by the width of the chars to get the number of lines
+    var numChars = textarea.value.length;
+    var width = textarea.clientWidth;
+    var charWidth = parseFloat(getComputedStyle(textarea).fontSize)*0.62; // width of a char in pixels (approx)
+    var numLines = Math.ceil(numChars * charWidth / width);
+    var height= numLines*scalingFactor;
+    
+    let terminal = document.querySelector(".terminal");
+    let terminalHeight = terminal.clientHeight;
 
-    function autoResize() {
-        this.style.height = 'auto';
-        this.style.height = this.scrollHeight + 'px';
+    if (height*charWidth < terminalHeight) {
+        if (height < scalingFactor) {
+            height = scalingFactor;
+        }
+        textarea.style.height = 0.5 + height + "em";
+        
     }
+    else {
+        textarea.style.height = terminalHeight + "px";
+    }
+    if (numLines < 1) {
+        numLines = 1;
+    }
+    textarea.rows = numLines;
+    console.log(charWidth*numChars, width, numLines, charWidth);
 }
 
 // Declaración de las funciones
@@ -61,6 +82,9 @@ const ALL_COMMANDS = {
     "contact": contact,
     "projects": projects,
     "github": github,
+    "very-long-command-that-should-be-truncated": function () {
+        console.log("very-long-command-that-should-be-truncated");
+    }
 };
 
 coincidentCommands = Object.keys(ALL_COMMANDS);
@@ -153,6 +177,8 @@ document.querySelector("#command-input").addEventListener("keydown", function (e
         }
         document.querySelector("#command-input").value = coincidentCommands[selectedComand];
         autocompleteContainer.innerHTML = "";
+        autoResize();
+
     }
     else if (e.key === "Enter") {
         // submit form
