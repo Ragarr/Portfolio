@@ -29,7 +29,7 @@ function autoResize() {
         numLines = 1;
     }
     textarea.rows = numLines;
-    console.log(charWidth * numChars, width, numLines, charWidth);
+    // console.log(charWidth * numChars, width, numLines, charWidth);
 }
 
 // Declaración de las funciones
@@ -161,7 +161,7 @@ function updateCoincidences(e) {
         return command.toLowerCase().includes(input.toLowerCase());
     });
     if (input === "") {
-        console.log("input vacío");
+        // console.log("input vacío");
         coincidentCommands = Object.keys(ALL_COMMANDS);
     }
     selectedComand = 0;
