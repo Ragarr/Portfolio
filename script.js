@@ -159,6 +159,9 @@ document
             // coincidencia de comandos (include sin case sensitive)
             return command.toLowerCase().includes(input.toLowerCase());
         });
+        if (input === "") {
+            coincidentCommands = Object.keys(ALL_COMMANDS);
+        }
         selectedComand = 0;
         autocompleteContainer.innerHTML = "";
         coincidentCommands.forEach(function (comando) {
