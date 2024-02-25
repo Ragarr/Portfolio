@@ -60,7 +60,7 @@ document.querySelector("#command-input").addEventListener("keydown", function (e
 document.querySelector("#command-input").addEventListener("input", function (e) {
     var input = e.target.value;
     coincidentCommands = ALL_COMMANDS.filter(function (command) {
-        return command.startsWith(input);
+        return command.includes(input);
     });
     selectedComand = 0;
     autocompleteContainer.innerHTML = "";
