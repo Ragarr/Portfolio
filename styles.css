@@ -52,7 +52,8 @@ body, html{
     padding: 2px;
     background-color: #333333;
     margin: 0 6px 0 6px;
-    height: 70%;
+    height: fit-content;
+    max-height: 70%;
     overflow-y: auto;
 }
 .autocomplete-container li{
@@ -64,4 +65,8 @@ body, html{
 .autocomplete-container li:hover{
     background-color: #444444;
     cursor: pointer;
+}
+
+.highlighted{
+    background-color: #444444;
 }
