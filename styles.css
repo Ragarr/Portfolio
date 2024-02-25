@@ -1,52 +1,81 @@
-@import url('https://fonts.cdnfonts.com/css/cascadia-code');
+@import url("https://fonts.cdnfonts.com/css/cascadia-code");
 
-body, html{
-    font-family: 'Cascadia Code', sans-serif;
-    background-color: #212121                                    
+body,
+html {
+    font-family: "Cascadia Code", sans-serif;
+    background-color: #212121;
 }
 
-.input-container, #command-input {
-    font-family: 'Cascadia Code', sans-serif;
+.terminal {
+    width: 100%;
+    height: 80vh;
+    text-align: left;
+    vertical-align: top;
+    background-color: #0d0d0d;
+    display: inline-block;
+    font-size: 5em;
+    border-radius: 25px;
+}
+
+/* el unico p que hay en el terminal es el simbolo de >*/
+.terminal p {
+    /* Fallback: Set a background color. */
+    background-color: red;
+
+    /* Create the gradient. */
+    background-image: linear-gradient(45deg, #f3ec78, #af4261);
+
+    /* Set the background size and repeat properties. */
+    background-size: 100%;
+    background-repeat: repeat;
+
+    /* Use the text as a mask for the background. */
+    /* This will show the gradient as a text color rather than element bg. */
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+
+    margin: 12px 0 0 12px;
+    
+
+}
+
+.input-container,
+#command-input {
+    font-family: "Cascadia Code", sans-serif;
     background-color: rgba(255, 255, 255, 0); /* Fondo transparente */
     color: #ebebeb; /* Color de texto visible */
     border: none; /* Sin borde */
-  }
-  
-#command-input::placeholder {
-    
-    color: rgba(0, 0, 0, 1); /* Color de texto del marcador de posición semi-visible */
+    font-size: 1em;
 }
-.input-container{
+
+#command-input::placeholder {
+    color: rgba(
+        0,
+        0,
+        0,
+        1
+    ); /* Color de texto del marcador de posición semi-visible */
+}
+.input-container {
     display: flex;
     width: 100%;
     align-items: flex-start;
     justify-content: flex-start;
-
 }
 
-#command-input{
+#command-input {
     padding-top: 4px;
     padding-left: 6px;
     display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
     border: none;
     outline: none;
     width: auto;
 }
 
-.terminal{
-    width: 100%;
-    height: 200px;
-    text-align: left;
-    vertical-align: top;
-    background-color: #0d0d0d;
-    display: inline-block;
-}
-
-.autocomplete-container{
+.autocomplete-container {
     color: #ebebeb;
     width: fit-content;
     padding: 2px;
@@ -56,17 +85,17 @@ body, html{
     max-height: 70%;
     overflow-y: auto;
 }
-.autocomplete-container li{
+.autocomplete-container li {
     list-style-type: none;
     padding: 0 4px 0 4px;
     margin: 0;
 }
 
-.autocomplete-container li:hover{
+.autocomplete-container li:hover {
     background-color: #444444;
     cursor: pointer;
 }
 
-.highlighted{
+.highlighted {
     background-color: #444444;
 }

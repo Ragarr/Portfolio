@@ -140,6 +140,9 @@ document.querySelector("#command-input").addEventListener("submit", function (e)
 document.querySelector("#command-input").addEventListener("keydown", function (e) {
     if (e.key === "Tab") {
         e.preventDefault();
+        if (coincidentCommands.length === 0) {
+            return;
+        }
         document.querySelector("#command-input").value = coincidentCommands[selectedComand];
         autocompleteContainer.innerHTML = "";
     }
