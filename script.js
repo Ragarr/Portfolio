@@ -3,7 +3,15 @@ document.querySelector(".terminal").addEventListener("click", function () {
     document.querySelector("#command-input").focus();
 });
 
+window.onload = function() {
+    var textarea = document.getElementById('command-input');
+    textarea.addEventListener('input', autoResize, false);
 
+    function autoResize() {
+        this.style.height = 'auto';
+        this.style.height = this.scrollHeight + 'px';
+    }
+}
 
 // Declaración de las funciones
 function help() {
