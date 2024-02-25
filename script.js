@@ -81,10 +81,7 @@ const ALL_COMMANDS = {
     "experience": experience,
     "contact": contact,
     "projects": projects,
-    "github": github,
-    "very-long-command-that-should-be-truncated": function () {
-        console.log("very-long-command-that-should-be-truncated");
-    }
+    "github": github
 };
 
 coincidentCommands = Object.keys(ALL_COMMANDS);
@@ -124,10 +121,23 @@ document.querySelector("#command-input").addEventListener("keydown", function (e
     // highlight selected command
     if (autocompleteContainer.children[selectedComand]){
         autocompleteContainer.children[selectedComand].classList.add('highlighted');
+        // Scroll the selected command into view
+        autocompleteContainer.children[selectedComand].scrollIntoView({block: "nearest"});
     }
-
-    
 });
+
+// RESALTAR EN EL MOUSEOVER Y SELECCIONAR COMO selectedComand el comando
+autocompleteContainer.addEventListener("mouseover", function (e) {
+    if (e.target.tagName === "LI") {
+        // remove highlight from all commands
+        autocompleteContainer.querySelectorAll('li').forEach(function (command) {
+            command.classList.remove('highlighted');
+        });
+        e.target.classList.add('highlighted');
+        selectedComand = Array.from(autocompleteContainer.children).indexOf(e.target);
+    }
+});
+
 
 // AL ESCRIIR EN EL INPUT, BUSCAR COMANDOS SIMILARES
 document.querySelector("#command-input").addEventListener("input", function (e) {

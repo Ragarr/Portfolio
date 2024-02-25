@@ -23,6 +23,7 @@ html {
     font-size: 5em;
     border-radius: 25px;
     margin-top: 20px;
+    overflow: hidden;
 }
 
 /* el unico p que hay en el terminal es el simbolo de >*/
@@ -46,8 +47,6 @@ html {
     -moz-text-fill-color: transparent;
 
     margin: 12px 0 0 12px;
-    
-
 }
 
 #command-input {
@@ -65,6 +64,8 @@ html {
     border: none;
     outline: none;
     width: auto;
+    /*remove scroller*/
+    scrollbar-width: none;
 }
 
 #command-input::placeholder {
@@ -85,14 +86,14 @@ html {
 .autocomplete-container {
     color: #ebebeb;
     width: fit-content;
-    padding: 2px;
-    background-color: #333333;
+    padding: 0px;
+    background-color: rgba(0, 0, 0, 0.2);
     margin: 0 6px 0 6px;
     height: fit-content;
-    max-height: 60%;
+    max-height: 65%;
     max-width: 95%;
     overflow-y: auto;
-    border-radius: 5px;
+    border-radius: 0px;
 }
 .autocomplete-container li {
     list-style-type: none;
@@ -105,6 +106,28 @@ html {
     cursor: pointer;
 }
 
+.autocomplete-container::-webkit-scrollbar {
+    background-color: #0d0d0d;
+}
+
+.autocomplete-container::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(45deg, #f3ec78, #af4261);
+    border-radius: 0px;
+}
+
+
 .highlighted {
     background-color: #444444;
+        /* Fallback: Set a background color. */
+    color: #0d0d0d;
+    /* Create the gradient. */
+    background-image: linear-gradient(45deg, #f3ec78, #af4261);
+
+    /* Set the background size and repeat properties. */
+    background-size: 100%;
+    background-repeat: repeat;
+
+    /* Use the text as a mask for the background. */
+    /* This will show the gradient as a text color rather than element bg. */
+    margin: 12px 0 0 12px;
 }
