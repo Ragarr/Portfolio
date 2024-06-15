@@ -1,248 +1,98 @@
-// SI CLICK EN TERMINAL, FOCO EN INPUT
-document.querySelector(".terminal").addEventListener("click", function () {
-    document.querySelector("#command-input").focus();
-});
-var textarea = document.getElementById("command-input");
-textarea.addEventListener("input", autoResize, false);
-function autoResize() {
-    let scalingFactor = 1;
-    // count number of characters in the textarea and the widht they take
-    // divide the width by the width of the chars to get the number of lines
-    var numChars = textarea.value.length;
-    var width = textarea.clientWidth;
-    var charWidth = parseFloat(getComputedStyle(textarea).fontSize) * 0.62; // width of a char in pixels (approx)
-    var numLines = Math.ceil((numChars * charWidth) / width);
-    var height = numLines * scalingFactor;
 
-    let terminal = document.querySelector(".terminal");
-    let terminalHeight = terminal.clientHeight;
+let rootStyles = getComputedStyle(document.documentElement);
 
-    if (height * charWidth < terminalHeight) {
-        if (height < scalingFactor) {
-            height = scalingFactor;
-        }
-        textarea.style.height = 0.5 + height + "em";
-    } else {
-        textarea.style.height = terminalHeight + "px";
-    }
-    if (numLines < 1) {
-        numLines = 1;
-    }
-    textarea.rows = numLines;
-    // console.log(charWidth * numChars, width, numLines, charWidth);
-}
+let circleColor = rootStyles.getPropertyValue('--circle-color');
+let backgroundColor = rootStyles.getPropertyValue('--background-color');
+let accentColor = rootStyles.getPropertyValue('--accent-color');
+let textColor = rootStyles.getPropertyValue('--text-color');
 
-// Declaración de las funciones
-function help() {
-    console.log("help");
-}
 
-function clear() {
-    console.log("clear");
-}
 
-function aboutMe() {
-    console.log("about-me");
-}
 
-function skills() {
-    console.log("skills");
-}
+document.addEventListener('mousemove', function(e) {
+    // Variables de configuración
+    const innerRadius = '0'; // Radio del color de acento
+    const outerRadius = '300px'; // Radio total del gradiente
+    
+    const x = e.clientX; // Obtiene la coordenada X del cursor
+    const y = e.clientY; // Obtiene la coordenada Y del cursor
+    const width = window.innerWidth; // Ancho total de la ventana
+    const height = window.innerHeight; // Alto total de la ventana
 
-function education() {
-    console.log("education");
-}
+    // Calcula el porcentaje de la posición del cursor respecto al total de la ventana
+    const xPercent = x / width * 100;
+    const yPercent = y / height * 100;
 
-function experience() {
-    console.log("experience");
-}
+    ligt = document.querySelector('.light');
 
-function contact() {
-    console.log("contact");
-}
 
-function projects() {
-    console.log("projects");
-}
-
-function github() {
-    console.log("github");
-}
-
-// Asignación de las funciones a los comandos
-const ALL_COMMANDS = {
-    help: help,
-    clear: clear,
-    "about-me": aboutMe,
-    skills: skills,
-    education: education,
-    experience: experience,
-    contact: contact,
-    projects: projects,
-    github: github,
-};
-
-coincidentCommands = Object.keys(ALL_COMMANDS);
-
-var selectedComand = 0;
-
-var autocompleteContainer = document.querySelector(".autocomplete-container");
-
-coincidentCommands.forEach(function (comando) {
-    var listItem = document.createElement("li");
-    listItem.textContent = comando;
-    autocompleteContainer.appendChild(listItem);
+    let new_bg = `radial-gradient(circle at ${xPercent}% ${yPercent}%, ${circleColor} ${innerRadius}, transparent ${outerRadius} )`;
+    
+    ligt.style.background = new_bg;
 });
 
-// RESALTAR LOS COMANDOS AL PULSAR UP Y DOWN, HACERLO CICLICO
-document
-    .querySelector("#command-input")
-    .addEventListener("keydown", function (e) {
-        if (e.key === "ArrowUp") {
-            selectedComand--;
-            if (selectedComand < 0) {
-                selectedComand = coincidentCommands.length - 1;
-            }
-            document.querySelector("#command-input").value =
-                coincidentCommands[selectedComand];
-        } else if (e.key === "ArrowDown") {
-            selectedComand++;
-            if (selectedComand > coincidentCommands.length - 1) {
-                selectedComand = 0;
-            }
-            document.querySelector("#command-input").value =
-                coincidentCommands[selectedComand];
-        }
-        // remove highlight from all commands
-        autocompleteContainer
-            .querySelectorAll("li")
-            .forEach(function (command) {
-                command.classList.remove("highlighted");
+
+nav_links = document.querySelectorAll('.nav-link');
+
+nav_links.forEach(link => {
+    link.addEventListener('click', clickOnNav.bind(this));
+});
+
+function clickOnNav(e) {
+    e.preventDefault();
+    let li = e.target;
+    if (li.tagName != 'LI') {
+        li = e.target.parentElement;
+    }
+
+    nav_links.forEach(link => {
+        link.classList.remove('selected-index');
+    });
+    li.classList.add('selected-index');
+
+    // el trget puede ser un li, un a o un span
+    // si no es un li buscar el li padre
+    
+
+    // ahora ir al anchor dentro del li y obtener el href
+    let anchor = li.querySelector('a');
+    let section_id = anchor.getAttribute('href');
+
+    // obtener la sección correspondiente al href
+    let section = document.querySelector(section_id);
+    
+    // hacer scroll a la sección
+    section.scrollIntoView({behavior: 'smooth'});
+
+}
+
+
+
+// si una sección es visible en la pantalla, marcar el link correspondiente
+
+let sections = document.querySelectorAll('section');
+let main = document.querySelector('main');
+
+main.addEventListener('scroll', function(e) {
+    // obtener el scroll actual dentro del main
+    let scroll = main.scrollTop;
+    let mainHeight = main.clientHeight;
+    let mainScrollHeight = main.scrollHeight;
+    const lambda = 0.5;
+
+    sections.forEach(section => {
+        let sectionTop = section.offsetTop;
+        let sectionHeight = section.clientHeight;
+
+        if (scroll >= sectionTop && scroll < sectionTop + sectionHeight ) {
+            let section_id = '#' + section.id;
+            let link = document.querySelector(`a[href="${section_id}"]`);
+            nav_links.forEach(link => {
+                link.classList.remove('selected-index');
             });
-
-        // highlight selected command
-        if (autocompleteContainer.children[selectedComand]) {
-            autocompleteContainer.children[selectedComand].classList.add(
-                "highlighted"
-            );
-            // Scroll the selected command into view
-            autocompleteContainer.children[selectedComand].scrollIntoView({
-                block: "nearest",
-            });
+            link.parentElement.classList.add('selected-index');
         }
     });
 
-// RESALTAR EN EL MOUSEOVER Y SELECCIONAR COMO selectedComand el comando
-autocompleteContainer.addEventListener("mouseover", function (e) {
-    if (e.target.tagName === "LI") {
-        // remove highlight from all commands
-        autocompleteContainer
-            .querySelectorAll("li")
-            .forEach(function (command) {
-                command.classList.remove("highlighted");
-            });
-        e.target.classList.add("highlighted");
-        selectedComand = Array.from(autocompleteContainer.children).indexOf(
-            e.target
-        );
-    }
-});
-function updateCoincidences(e) {
-    if (e){
-        var input = e.target.value;
-    }
-    else{
-        input = "";
-    }
-    coincidentCommands = Object.keys(ALL_COMMANDS).filter(function (
-        command
-    ) {
-        // coincidencia de comandos (include sin case sensitive)
-        return command.toLowerCase().includes(input.toLowerCase());
-    });
-    if (input === "") {
-        // console.log("input vacío");
-        coincidentCommands = Object.keys(ALL_COMMANDS);
-    }
-    selectedComand = 0;
-    autocompleteContainer.innerHTML = "";
-    coincidentCommands.forEach(function (comando) {
-        var listItem = document.createElement("li");
-        listItem.textContent = comando;
-        autocompleteContainer.appendChild(listItem);
-    });
 }
-// AL ESCRIIR EN EL INPUT, BUSCAR COMANDOS SIMILARES
-document
-    .querySelector("#command-input")
-    .addEventListener("input", updateCoincidences);
-
-// AL HACER CLICK EN UN COMANDO, ESCIBIRLO EN EL INPUT
-autocompleteContainer.addEventListener("click", function (e) {
-    if (e.target.tagName === "LI") {
-        document.querySelector("#command-input").value = e.target.textContent;
-        autocompleteContainer.innerHTML = "";
-    }
-});
-
-// AL HACER SUBMIT EN EL INPUT, EJECUTAR EL COMANDO
-document
-    .querySelector("#command-input")
-    .addEventListener("submit", function (e) {
-        e.preventDefault();
-        var command = document.querySelector("#command-input").value;
-        if (ALL_COMMANDS[command]) {
-            ALL_COMMANDS[command]();
-        } else {
-            // código para el comando no encontrado
-        }
-        document.querySelector("#command-input").value = "";
-        autocompleteContainer.innerHTML = "";
-    });
-
-// al presionar tab, autocompletar el comando en el input
-document
-    .querySelector("#command-input")
-    .addEventListener("keydown", function (e) {
-        if (e.key === "Tab") {
-            e.preventDefault();
-            if (coincidentCommands.length === 0) {
-                return;
-            }
-            document.querySelector("#command-input").value =
-                coincidentCommands[selectedComand];
-            autocompleteContainer.innerHTML = "";
-            autoResize();
-        } else if (e.key === "Enter") {
-            // submit form
-            e.preventDefault();
-            var command = document.querySelector("#command-input").value;
-            if (ALL_COMMANDS[command]) {
-                ALL_COMMANDS[command]();
-            } else {
-                help();
-            }
-            document.querySelector("#command-input").value = "";
-            autocompleteContainer.innerHTML = "";
-            updateCoincidences();
-        }
-    });
-
-// RELOJ MADRID
-
-function mostrarHoraMadrid() {
-    var fecha = new Date();
-    var opciones = {
-        timeZone: "Europe/Madrid",
-        hour12: false,
-        hour: "numeric",
-        minute: "numeric",
-    };
-    var horaMadrid = fecha.toLocaleTimeString("es-ES", opciones);
-    document.getElementById("clock").textContent = horaMadrid;
-}
-
-mostrarHoraMadrid(); // Mostrar la hora al cargar la página
-
-// Actualizar la hora cada segundo
-setInterval(mostrarHoraMadrid, 1000);
+);

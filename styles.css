@@ -1,222 +1,204 @@
-@import url("https://fonts.cdnfonts.com/css/cascadia-code");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap");
+/*palette: https://huemint.com/brand-intersection/#palette=212121-e8e6d5-a1b4b6-338a97 */
+.fira-mono-regular {
+    font-family: "Fira Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+}
 
-body,
+
+.fira-mono-medium {
+    font-family: "Fira Mono", monospace;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.fira-mono-bold {
+    font-family: "Fira Mono", monospace;
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+:root{
+    --background-color: rgb(18, 22, 40);
+    --circle-color: rgba(115, 133, 152, 0.2);
+    --text-color: rgb(175, 177, 177);
+    --accent-color: rgb(28, 179, 200);
+}
+
 html {
     font-family: "Cascadia Code", sans-serif;
-    background-color: #212121;
-    width: 100%;
+    background-color: var(--background-color);
+    transition : background-color 0.5s;
+    margin: 0;
+    padding: 0;
+
+}
+
+body{
+    width: auto;
     height: 100%;
     margin: 0;
-    padding: 0;
+    padding-left: 5rem;
+    padding-right: 5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.terminal {
-    width: auto;
-    height: 60vh;
-    width: 95vw;
-    text-align: left;
-    vertical-align: top;
-    background-color: #0d0d0d;
-    display: inline-block;
-    font-size: 5em;
-    border-radius: 25px;
-    margin-top: 20px;
-    overflow: hidden;
-}
-
-/* el unico p que hay en el terminal es el simbolo de >*/
-.terminal p{
-    /* Fallback: Set a background color. */
-    background-color: red;
-
-    /* Create the gradient. */
-    background-image: linear-gradient(45deg, #f3ec78, #af4261);
-
-    /* Set the background size and repeat properties. */
-    background-size: 100%;
-    background-repeat: repeat;
-
-    /* Use the text as a mask for the background. */
-    /* This will show the gradient as a text color rather than element bg. */
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -moz-background-clip: text;
-    -moz-text-fill-color: transparent;
-
-    margin: 12px 0 0 12px;
-}
-
-#command-input {
-    width: 100% !important; /* Algo sobreescribia el ancho, FIXME */
-    font-family: "Cascadia Code", sans-serif;
-    background-color: rgba(255, 255, 255, 0); /* Fondo transparente */
-    color: #ebebeb; /* Color de texto visible */
-    border: none; /* Sin borde */
-    font-size: 1em;
-    resize: none; /* No se puede redimensionar */
-    height: 1em; 
-    padding-top: 4px;
-    padding-left: 6px;
-    display: block;
-    border: none;
-    outline: none;
-    width: auto;
-    /*remove scroller*/
-    scrollbar-width: none;
-}
-
-#command-input::placeholder {
-    color: rgba(
-        0,
-        0,
-        0,
-        1
-    ); /* Color de texto del marcador de posición semi-visible */
-}
-.input-container {
-    display: flex;
-    width: 100%;
-    align-items: flex-start;
     justify-content: flex-start;
-    scrollbar-width: none;
-    overflow: hidden;
+    padding-top: 10vh;
+    min-height: 90vh;
+    background:
+        radial-gradient(circle at 10% 25%, var(--circle-color) 0%, transparent 300px),
+        radial-gradient(circle at 30% 100%, var(--circle-color) 0%, transparent 500px),
+        radial-gradient(circle at 90% 80%, var(--circle-color) 0%, transparent 250px),
+        var(--background-color);
 }
-
-.autocomplete-container {
-    color: #ebebeb;
-    width: fit-content;
-    padding: 0px;
-    background-color: rgba(0, 0, 0, 0.2);
-    margin: 0 6px 0 6px;
-    height: fit-content;
-    max-height: 65%;
-    max-width: 95%;
-    overflow-y: auto;
-    border-radius: 0px;
-    overflow-x: hidden; /* Esto oculta el scrollbar horizontal */
-}
-.autocomplete-container li {
-    list-style-type: none;
-    padding: 0 4px 0 4px;
-    margin: 0;
-}
-
-.autocomplete-container li:hover {
-    background-color: #444444;
-    cursor: pointer;
-}
-
-.autocomplete-container::-webkit-scrollbar {
-    background-color: #0d0d0d;
-}
-
-.autocomplete-container::-webkit-scrollbar-thumb {
-    background-image: linear-gradient(45deg, #f3ec78, #af4261);
-    border-radius: 0px;
-}
-
-
-.highlighted {
-    background-color: #444444;
-        /* Fallback: Set a background color. */
-    color: #0d0d0d;
-    /* Create the gradient. */
-    background-image: linear-gradient(45deg, #f3ec78, #af4261);
-
-    /* Set the background size and repeat properties. */
-    background-size: 100%;
-    background-repeat: repeat;
-
-    /* Use the text as a mask for the background. */
-    /* This will show the gradient as a text color rather than element bg. */
-    margin: 12px 0 0 12px;
-}
-
-
-
-
-.top-bar {
+.light {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: fit-content;
+    height: 100%;
+    background-color: transparent;
+    z-index: 0;
+}
+.columns{
+    max-width: 1080px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 5rem;
+    z-index: 1;
+}
+
+main {
+    overflow-y: auto; /* Permite scroll solo cuando es necesario */
+    max-height: calc(90vh - 10vh); /* Ajusta la altura máxima según tu diseño */
+    padding-top: 1rem; /* Ajusta según tu diseño */
+    scrollbar-width: none; /* Oculta el scrollbar en Firefox */
+    -ms-overflow-style: none; /* Oculta el scrollbar en IE/Edge */
+}
+main::-webkit-scrollbar {
+    display: none; /* Oculta el scrollbar en Chrome, Safari, y Opera */
+}
+
+section {
+    margin-bottom: 7rem;
+}
+
+header{
+    position: sticky;
+}
+
+@media (max-width: 768px) {
+    .columns {
+        grid-template-columns: 1fr;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+    
+}
+h1 {
+    font-size: 3rem;
+    color: var(--accent-color);
+    margin: 0;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+p, a {
+    font-size: 1.1rem;
+    font-family:     "Segoe UI Symbol", "Noto Color Emoji";
+    color: var(--text-color);
+    margin: 0;
+    margin-bottom: 1rem;
+}
+
+
+
+nav {
     display: flex;
     justify-content: space-between;
+    width: 100%;
+    margin-bottom: 1rem;
 }
-.presentation{
-    margin-left: 3%;
-    margin-top: 1%;
-}
-.top-bar h1 {
-    /* Fallback: Set a background color. */
-    background-color: red;
-    font-size: 2em;
 
-    /* Create the gradient. */
-    background-image: linear-gradient(45deg, #f3ec78, #af4261);
-
-    /* Set the background size and repeat properties. */
-    background-size: 100%;
-    background-repeat: repeat;
-
-    /* Use the text as a mask for the background. */
-    /* This will show the gradient as a text color rather than element bg. */
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -moz-background-clip: text;
-    -moz-text-fill-color: transparent;
-    margin: 0;
+nav ul {
+    list-style: none;
     padding: 0;
-
-
+    padding-left: 1rem;
+    
 }
-.top-bar h2{
-    margin: 0;
+
+nav li{
+    padding-bottom: 0.5rem;
+}
+
+nav li canvas {
+    width: 1rem;
+    height: 3px;
+    margin-right: 0.1rem;
+    border-radius: 1px;
+    background-color: var(--text-color);
+    transition: width 0.5s ease, background-color 0.5s ease;
+    margin-bottom: 0.22rem;
+}
+
+
+
+nav a {
+    text-decoration: none;
+    text-align: center;
+    transition: font-weight 0.5s ease,
+                color 0.5s ease,
+                font-size 0.5s ease;
+}
+
+/* Efecto hover para li */
+nav li:hover canvas {
+    width: 2rem; /* Cambia el ancho del canvas */
+    background-color: var(--accent-color); /* Cambia el color de fondo del canvas */
+}
+
+nav li:hover a {
+    color: var(--accent-color); /* Cambia el color del texto */
+    font-weight: 700; /* Cambia el grosor de la fuente */
+    font-size: large; /* Cambia el tamaño de la fuente */
+}
+
+.selected-index canvas {
+    width: 2rem;
+    background-color: var(--accent-color);
+}
+
+.selected-index a {
+    color: var(--accent-color);
+    font-weight: 700;
+    font-size: large;
+}
+
+
+.contact{
+    position: fixed;
+    bottom: 0;
+}
+
+
+.contact ul {
+    list-style: none;
+    list-style-type: none;
     padding: 0;
-    color: #ebebeb;
-    font-size: 1em;
-    font-family: "Cascadia Code", sans-serif;
-
+    height: 100%;
 }
 
-
-
-.my-location{
-    color: #a7a7a7;
-    font-size: 1em;
-    font-family: "Cascadia Code", sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 50%;
-    margin-right: 3%;
-    margin-top: 2%;
-}
-#location-content{
-    display: flex;
-    flex-direction: row;
-
-}
-.my-location p{
-    margin: 0;
-    padding: 0;
-    color: #a7a7a7;
-    font-size: 1em;
-    font-family: "Cascadia Code", sans-serif;
-    width: fit-content;
-}
-#clock{
-    background-color: #212121;
-}
-#ubi {
-    overflow: hidden;
-    white-space: nowrap;
-    position: relative;
-    width: fit-content;
+.contact li {
+    display: inline-block; /* Hace que los elementos <li> se muestren en línea */
+    width: 2rem;
+    margin : 0.2rem;
 }

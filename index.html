@@ -1,34 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raul Aguilar</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="top-bar">
-        <div class = "presentation">
-            <h1>Raul Aguilar</h1>
-            <h2>Software Developer</h2>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Raul Aguilar</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <div class="light"></div>
+        <div class="columns">
+            <header>
+                <h1>Raúl Aguilar</h1>
+                <h2>Estudiante de Ingeniería Informática</h2>
+                <p>
+                    Explorando nuevas tecnologías y expandiendo mis
+                    conocimientos a través de proyectos personales.
+                </p>
+                <nav>
+                    <ul class="nav-list">
+                        <li class="selected-index nav-link">
+                            <canvas></canvas>
+                            <a href="#about">Sobre mi</a>
+                        </li>
+                        <li class="nav-link">
+                            <canvas></canvas>
+                            <a href="#projects">Proyectos</a>
+                        </li>
+                        <li class="nav-link">
+                            <canvas></canvas>
+                            <a href="#experience">Experiencia</a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="contact">
+                    <ul>
+                        <li>
+                            <a href="https://github.com/Ragarr" target="_blank">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 16 16"
+                                    fill="currentColor"
+                                    class="h-6 w-6"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+                                    ></path>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="https://www.linkedin.com/in/ra%C3%B9l-aguilar-arroyo-208462221/"
+                                target="_blank"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    class="h-6 w-6"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"
+                                    ></path>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:raulagarr@gmail.com">
+                                <svg
+                                    fill="currentColor"
+                                    version="1.1"
+                                    id="Capa_1"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    viewBox="0 0 75.294 75.294"
+                                    xml:space="preserve"
+                                    stroke="currentColor"
+                                >
+                                    <g
+                                        id="SVGRepo_bgCarrier"
+                                        stroke-width="0"
+                                    ></g>
+                                    <g
+                                        id="SVGRepo_tracerCarrier"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    ></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <g>
+                                            <path
+                                                d="M66.097,12.089h-56.9C4.126,12.089,0,16.215,0,21.286v32.722c0,5.071,4.126,9.197,9.197,9.197h56.9 c5.071,0,9.197-4.126,9.197-9.197V21.287C75.295,16.215,71.169,12.089,66.097,12.089z M61.603,18.089L37.647,33.523L13.691,18.089 H61.603z M66.097,57.206h-56.9C7.434,57.206,6,55.771,6,54.009V21.457l29.796,19.16c0.04,0.025,0.083,0.042,0.124,0.065 c0.043,0.024,0.087,0.047,0.131,0.069c0.231,0.119,0.469,0.215,0.712,0.278c0.025,0.007,0.05,0.01,0.075,0.016 c0.267,0.063,0.537,0.102,0.807,0.102c0.001,0,0.002,0,0.002,0c0.002,0,0.003,0,0.004,0c0.27,0,0.54-0.038,0.807-0.102 c0.025-0.006,0.05-0.009,0.075-0.016c0.243-0.063,0.48-0.159,0.712-0.278c0.044-0.022,0.088-0.045,0.131-0.069 c0.041-0.023,0.084-0.04,0.124-0.065l29.796-19.16v32.551C69.295,55.771,67.86,57.206,66.097,57.206z"
+                                            ></path>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href = "https://www.goodreads.com/user/show/167633349-ra-l-aguilar" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" fill="currentColor" class="h-6 w-6" aria-hidden="true"><path d="M663.8 382.4c10.2 74.6-9.4 158-71.8 201.4-44.6 31-105.6 28.2-141.6 11.4-74.2-34.6-99-117.2-93.6-194.4 8.6-121.8 81.8-175.8 150.6-175 93.8-0.4 143.6 63.6 156.4 156.6zM960 176v672c0 61.8-50.2 112-112 112H176c-61.8 0-112-50.2-112-112V176c0-61.8 50.2-112 112-112h672c61.8 0 112 50.2 112 112zM724 626.4s-0.2-68-0.2-434.6h-58v80.6c-1.6 0.6-2.4-1-3.2-2.4-19.2-41.4-71.8-92.6-152-92-103.8 0.8-174.4 62.4-201.2 155.6-8.6 29.8-11.6 60.2-11 91.2 3.4 155.8 90.2 235.6 224.8 230.4 57.8-2.2 109-34 138-90.4 1-2 2.2-3.8 3.4-5.8 0.4 0.2 0.8 0.2 1.2 0.4 0.6 7.6 0.4 61.4 0.2 69-0.4 29.6-4 59-14.4 87-15.6 42-44.6 69.4-89 79-35.6 7.8-71.2 7.6-106.4-2.4-43-12.2-73-38-82.2-83.6-0.6-3.2-2.6-2.6-4.6-2.6h-53.6c1.6 21.2 6.4 40.6 17 58.4 48.4 81 165.4 97 256.4 74.8 99.8-24.6 134.6-109.8 134.8-212.6z" fill=""></path></svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </header>
+            <main>
+                <section id="about">
+                    <p>
+                        Soy un apasionado de explorar nuevas tecnologías en
+                        ingeniería informática y expandir mis conocimientos y
+                        habilidades a través de proyectos personales. Me gusta
+                        explorar en el mundo de la inteligencia artificial y la
+                        programación orientada al rendimiento. Disfruto de
+                        enfrentarme a nuevos problemas para resolverlos. Me
+                        motiva el desafío de adquirir nuevas habilidades y
+                        conocimientos.
+                    </p>
+                </section>
+                <section id="projects">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Mauris id fringilla turpis, a porttitor arcu. Morbi odio
+                        dolor, auctor a pulvinar vel, tincidunt in massa. In
+                        eget ullamcorper dolor. Curabitur in ipsum ut lacus
+                        blandit commodo. Vestibulum convallis neque sit amet
+                        neque ultrices, in ornare felis faucibus. Curabitur sit
+                        amet massa non nulla dictum scelerisque. Etiam non dolor
+                        sit amet lectus scelerisque ultrices vitae nec risus.
+                        Suspendisse consequat est sit amet justo varius, in
+                        facilisis libero congue. Ut vel metus fermentum,
+                        accumsan mauris vitae, fringilla lacus.
+                    </p>
+                    <p>
+                        Nulla quis euismod enim, quis pulvinar dolor.
+                        Suspendisse in libero mollis, scelerisque quam ac,
+                        sodales quam. Proin quis eleifend ligula. Ut ultricies
+                        purus scelerisque, imperdiet lacus in, dignissim nisi.
+                        Curabitur feugiat tortor ac tincidunt sollicitudin.
+                        Praesent quis porttitor tortor. Curabitur finibus lectus
+                        et semper volutpat. Fusce euismod fringilla aliquet. Nam
+                        rhoncus faucibus purus eu egestas. Aenean eget metus
+                        vehicula, interdum neque quis, ultricies neque. Sed vel
+                        sem molestie, faucibus arcu sed, ultrices sapien. In
+                        imperdiet ullamcorper metus in commodo. Quisque quis
+                        lectus sed ipsum ultrices maximus. Sed quis laoreet
+                        turpis, et bibendum mauris.
+                    </p>
+                    <p>
+                        Maecenas nec nibh mollis, volutpat nisl at, laoreet
+                        ante. In sed interdum erat. Sed facilisis magna ut
+                        ligula aliquet, quis ornare est dictum. Ut vitae sem
+                        velit. Fusce a dui vel magna tincidunt iaculis. Sed
+                        congue blandit porttitor. Vestibulum et faucibus orci.
+                        Curabitur consequat magna sed massa finibus, in accumsan
+                        tellus ultrices. Nulla tincidunt metus et sem mollis,
+                        aliquam varius enim condimentum. Maecenas nec tristique
+                        erat. Ut imperdiet, mi sit amet vehicula mollis, nunc
+                        eros tincidunt urna, at vehicula felis urna vel nibh.
+                        Etiam ex urna, pharetra id erat efficitur, aliquet
+                        auctor nibh. Suspendisse sollicitudin sagittis libero,
+                        maximus volutpat odio placerat vitae. Nullam et lobortis
+                        nibh.
+                    </p>
+                    <p>
+                        Ut orci sem, fermentum vel est quis, egestas venenatis
+                        nisi. Curabitur tortor ex, cursus eu urna eget, rhoncus
+                        ullamcorper erat. Cras at lectus sollicitudin turpis
+                        commodo maximus. Nulla commodo diam massa, sed ultricies
+                        ex aliquet in. Pellentesque dignissim rutrum consequat.
+                        Duis tincidunt massa sem, eu maximus eros sollicitudin
+                        quis. Pellentesque leo ligula, ullamcorper ut bibendum
+                        a, fermentum at justo. Lorem ipsum dolor sit amet,
+                        consectetur adipiscing elit. Maecenas dapibus mi nibh,
+                        in laoreet ante mattis eu. Pellentesque vel laoreet
+                        odio. Ut elementum diam eget rhoncus facilisis. Nullam
+                        laoreet neque nec maximus tempor. Suspendisse potenti.
+                    </p>
+                </section>
+                <section id="experience">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Mauris id fringilla turpis, a porttitor arcu. Morbi odio
+                        dolor, auctor a pulvinar vel, tincidunt in massa. In
+                        eget ullamcorper dolor. Curabitur in ipsum ut lacus
+                        blandit commodo. Vestibulum convallis neque sit amet
+                        neque ultrices, in ornare felis faucibus. Curabitur sit
+                        amet massa non nulla dictum scelerisque. Etiam non dolor
+                        sit amet lectus scelerisque ultrices vitae nec risus.
+                        Suspendisse consequat est sit amet justo varius, in
+                        facilisis libero congue. Ut vel metus fermentum,
+                        accumsan mauris vitae, fringilla lacus.
+                    </p>
+                    <p>
+                        Nulla quis euismod enim, quis pulvinar dolor.
+                        Suspendisse in libero mollis, scelerisque quam ac,
+                        sodales quam. Proin quis eleifend ligula. Ut ultricies
+                        purus scelerisque, imperdiet lacus in, dignissim nisi.
+                        Curabitur feugiat tortor ac tincidunt sollicitudin.
+                        Praesent quis porttitor tortor. Curabitur finibus lectus
+                        et semper volutpat. Fusce euismod fringilla aliquet. Nam
+                        rhoncus faucibus purus eu egestas. Aenean eget metus
+                        vehicula, interdum neque quis, ultricies neque. Sed vel
+                        sem molestie, faucibus arcu sed, ultrices sapien. In
+                        imperdiet ullamcorper metus in commodo. Quisque quis
+                        lectus sed ipsum ultrices maximus. Sed quis laoreet
+                        turpis, et bibendum mauris.
+                    </p>
+                    <p>
+                        Maecenas nec nibh mollis, volutpat nisl at, laoreet
+                        ante. In sed interdum erat. Sed facilisis magna ut
+                        ligula aliquet, quis ornare est dictum. Ut vitae sem
+                        velit. Fusce a dui vel magna tincidunt iaculis. Sed
+                        congue blandit porttitor. Vestibulum et faucibus orci.
+                        Curabitur consequat magna sed massa finibus, in accumsan
+                        tellus ultrices. Nulla tincidunt metus et sem mollis,
+                        aliquam varius enim condimentum. Maecenas nec tristique
+                        erat. Ut imperdiet, mi sit amet vehicula mollis, nunc
+                        eros tincidunt urna, at vehicula felis urna vel nibh.
+                        Etiam ex urna, pharetra id erat efficitur, aliquet
+                        auctor nibh. Suspendisse sollicitudin sagittis libero,
+                        maximus volutpat odio placerat vitae. Nullam et lobortis
+                        nibh.
+                    </p>
+                </section>
+            </main>
         </div>
-        <div id=my-location class="my-location">
-            <p>Location:</p>
-            <div id = "location-content">
-                <p id=ubi >Mad.</p>
-                <div id="clock" class="clock"></div>
-            </div>
-        
-        </div>
-        
-    </div>
-    <div class="terminal">
-        <div class="input-container">
-            <p> > </p>
-            <textarea type="text" id="command-input" class="command-input" autofocus spellcheck="false"></textarea>
-        </div>
-        <div class="autocomplete-container" id="autocomplete-container"></div>
-    </div>
-    <script src="script.js"></script>
-</body>
+
+        <script src="script.js"></script>
+    </body>
 </html>
