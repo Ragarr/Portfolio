@@ -113,7 +113,7 @@ h2 {
 }
 
 p, a {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-family:     "Segoe UI Symbol", "Noto Color Emoji";
     color: var(--text-color);
     margin: 0;
@@ -181,4 +181,24 @@ nav li:hover a {
     color: var(--accent-color);
     font-weight: 700;
     font-size: large;
+}
+
+
+.contact{
+    position: fixed;
+    bottom: 0;
+}
+
+
+.contact ul {
+    list-style: none;
+    list-style-type: none;
+    padding: 0;
+    height: 100%;
+}
+
+.contact li {
+    display: inline-block; /* Hace que los elementos <li> se muestren en línea */
+    width: 2rem;
+    margin : 0.2rem;
 }

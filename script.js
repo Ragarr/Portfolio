@@ -84,7 +84,7 @@ main.addEventListener('scroll', function(e) {
         let sectionTop = section.offsetTop;
         let sectionHeight = section.clientHeight;
 
-        if (scroll >= sectionTop - mainHeight * lambda && scroll < sectionTop + sectionHeight - mainHeight * lambda) {
+        if (scroll >= sectionTop && scroll < sectionTop + sectionHeight ) {
             let section_id = '#' + section.id;
             let link = document.querySelector(`a[href="${section_id}"]`);
             nav_links.forEach(link => {
