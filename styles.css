@@ -21,9 +21,9 @@
 
 
 :root{
-    --background-color: rgb(41, 45, 65);
-    --circle-color: rgba(115, 133, 152, 0.1);
-    --text-color: rgb(223, 226, 226);
+    --background-color: rgb(18, 22, 40);
+    --circle-color: rgba(115, 133, 152, 0.2);
+    --text-color: rgb(175, 177, 177);
     --accent-color: rgb(28, 179, 200);
 }
 
@@ -50,8 +50,8 @@ body{
     min-height: 90vh;
     background:
         radial-gradient(circle at 10% 25%, var(--circle-color) 0%, transparent 300px),
-        radial-gradient(circle at 20% 70%, var(--circle-color) 0%, transparent 100px),
-        radial-gradient(circle at 80% 80%, var(--circle-color) 0%, transparent 200px),
+        radial-gradient(circle at 30% 100%, var(--circle-color) 0%, transparent 500px),
+        radial-gradient(circle at 90% 80%, var(--circle-color) 0%, transparent 250px),
         var(--background-color);
 }
 .light {
@@ -61,12 +61,33 @@ body{
     width: 100%;
     height: 100%;
     background-color: transparent;
+    z-index: 0;
 }
 .columns{
     max-width: 1080px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 5rem;
+    z-index: 1;
+}
+
+main {
+    overflow-y: auto; /* Permite scroll solo cuando es necesario */
+    max-height: calc(90vh - 10vh); /* Ajusta la altura máxima según tu diseño */
+    padding-top: 1rem; /* Ajusta según tu diseño */
+    scrollbar-width: none; /* Oculta el scrollbar en Firefox */
+    -ms-overflow-style: none; /* Oculta el scrollbar en IE/Edge */
+}
+main::-webkit-scrollbar {
+    display: none; /* Oculta el scrollbar en Chrome, Safari, y Opera */
+}
+
+section {
+    margin-bottom: 7rem;
+}
+
+header{
+    position: sticky;
 }
 
 @media (max-width: 768px) {
@@ -78,23 +99,86 @@ body{
     
 }
 h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     color: var(--accent-color);
     margin: 0;
     margin-bottom: 1rem;
 }
 
 h2 {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     color: var(--accent-color);
     margin: 0;
     margin-bottom: 0.5rem;
 }
 
-p {
+p, a {
     font-size: 1rem;
     font-family:     "Segoe UI Symbol", "Noto Color Emoji";
     color: var(--text-color);
     margin: 0;
     margin-bottom: 1rem;
+}
+
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    padding-left: 1rem;
+    
+}
+
+nav li{
+    padding-bottom: 0.5rem;
+}
+
+nav li canvas {
+    width: 1rem;
+    height: 3px;
+    margin-right: 0.1rem;
+    border-radius: 1px;
+    background-color: var(--text-color);
+    transition: width 0.5s ease, background-color 0.5s ease;
+    margin-bottom: 0.22rem;
+}
+
+
+
+nav a {
+    text-decoration: none;
+    text-align: center;
+    transition: font-weight 0.5s ease,
+                color 0.5s ease,
+                font-size 0.5s ease;
+}
+
+/* Efecto hover para li */
+nav li:hover canvas {
+    width: 2rem; /* Cambia el ancho del canvas */
+    background-color: var(--accent-color); /* Cambia el color de fondo del canvas */
+}
+
+nav li:hover a {
+    color: var(--accent-color); /* Cambia el color del texto */
+    font-weight: 700; /* Cambia el grosor de la fuente */
+    font-size: large; /* Cambia el tamaño de la fuente */
+}
+
+.selected-index canvas {
+    width: 2rem;
+    background-color: var(--accent-color);
+}
+
+.selected-index a {
+    color: var(--accent-color);
+    font-weight: 700;
+    font-size: large;
 }
