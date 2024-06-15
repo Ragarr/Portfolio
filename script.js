@@ -35,48 +35,64 @@ document.addEventListener('mousemove', function(e) {
 nav_links = document.querySelectorAll('.nav-link');
 
 nav_links.forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        nav_links.forEach(link => {
-            link.classList.remove('selected-index');
-        });
-        link.classList.add('selected-index');
-        
-        // get the a inside the li (nav_link is the li)
-        let target = link.querySelector('a').getAttribute('href');
-        let target_section = document.querySelector(target);
-        let target_section_top = target_section.offsetTop;
-        window.scrollTo({
-            top: target_section_top,
-            behavior: 'smooth'
-        });
-        
-    });
+    link.addEventListener('click', clickOnNav.bind(this));
 });
 
-// cuando navegas por las secciones de la página 
-// se cambia el color del link seleccionado correspondiente a la sección actual
-
-window.addEventListener('scroll', function() {
-    let scroll_position = window.scrollY;
-    let sections = document.querySelectorAll('section');
-    let current_section = '';
-
-    sections.forEach(section => {
-        let section_top = section.offsetTop;
-        let section_height = section.clientHeight;
-
-        if (scroll_position >= section_top - section_height / 3) {
-            current_section = section.getAttribute('id');
-        }
-    });
+function clickOnNav(e) {
+    e.preventDefault();
+    let li = e.target;
+    if (li.tagName != 'LI') {
+        li = e.target.parentElement;
+    }
 
     nav_links.forEach(link => {
         link.classList.remove('selected-index');
-        if (link.classList.contains(current_section)) {
-            link.classList.add('selected-index');
+    });
+    li.classList.add('selected-index');
+
+    // el trget puede ser un li, un a o un span
+    // si no es un li buscar el li padre
+    
+
+    // ahora ir al anchor dentro del li y obtener el href
+    let anchor = li.querySelector('a');
+    let section_id = anchor.getAttribute('href');
+
+    // obtener la sección correspondiente al href
+    let section = document.querySelector(section_id);
+    
+    // hacer scroll a la sección
+    section.scrollIntoView({behavior: 'smooth'});
+
+}
+
+
+
+// si una sección es visible en la pantalla, marcar el link correspondiente
+
+let sections = document.querySelectorAll('section');
+let main = document.querySelector('main');
+
+main.addEventListener('scroll', function(e) {
+    // obtener el scroll actual dentro del main
+    let scroll = main.scrollTop;
+    let mainHeight = main.clientHeight;
+    let mainScrollHeight = main.scrollHeight;
+    const lambda = 0.5;
+
+    sections.forEach(section => {
+        let sectionTop = section.offsetTop;
+        let sectionHeight = section.clientHeight;
+
+        if (scroll >= sectionTop - mainHeight * lambda && scroll < sectionTop + sectionHeight - mainHeight * lambda) {
+            let section_id = '#' + section.id;
+            let link = document.querySelector(`a[href="${section_id}"]`);
+            nav_links.forEach(link => {
+                link.classList.remove('selected-index');
+            });
+            link.parentElement.classList.add('selected-index');
         }
     });
-});
 
-
+}
+);
