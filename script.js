@@ -1,7 +1,9 @@
+
+
 document.addEventListener('mousemove', function(e) {
     // Variables de configuración
-    const accentColor = 'rgba(94, 92, 93, 0.2)'; // Color de acento con opacidad
-    const backgroundColor = 'rgba(48, 46, 41)'; // Color de fondo oscuro
+    const circleColor = 'rgba(115, 133, 152, 0.1)'; // Color de acento con opacidad
+    const backgroundColor = 'rgb(60, 65, 94, 0.2)'; // Color de fondo
     const innerRadius = '1px'; // Radio del color de acento
     const outerRadius = '500px'; // Radio total del gradiente
     
@@ -14,5 +16,6 @@ document.addEventListener('mousemove', function(e) {
     const xPercent = x / width * 100;
     const yPercent = y / height * 100;
     // Establece el fondo como un gradiente radial que sigue al cursor
-    document.body.style.background = `radial-gradient(circle at ${xPercent}% ${yPercent}%, ${accentColor} ${innerRadius}, ${backgroundColor} ${outerRadius})`;
+    document.body.style.background = `radial-gradient(circle at ${xPercent}% 
+    ${yPercent}%, ${circleColor} ${innerRadius}, ${backgroundColor} ${outerRadius})`;
 });
