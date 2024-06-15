@@ -21,11 +21,10 @@
 
 
 :root{
-    --background-color: rgb(60, 65, 94);
-    --circle-color: rgb(115, 133, 152);
+    --background-color: rgb(41, 45, 65);
+    --circle-color: rgba(115, 133, 152, 0.1);
     --text-color: rgb(223, 226, 226);
     --accent-color: rgb(28, 179, 200);
-    --block-color: rgb(115, 133, 152);
 }
 
 html {
@@ -49,9 +48,20 @@ body{
     justify-content: flex-start;
     padding-top: 10vh;
     min-height: 90vh;
-
+    background:
+        radial-gradient(circle at 10% 25%, var(--circle-color) 0%, transparent 300px),
+        radial-gradient(circle at 20% 70%, var(--circle-color) 0%, transparent 100px),
+        radial-gradient(circle at 80% 80%, var(--circle-color) 0%, transparent 200px),
+        var(--background-color);
 }
-
+.light {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+}
 .columns{
     max-width: 1080px;
     display: grid;
@@ -82,7 +92,6 @@ h2 {
 }
 
 p {
-
     font-size: 1rem;
     font-family:     "Segoe UI Symbol", "Noto Color Emoji";
     color: var(--text-color);
