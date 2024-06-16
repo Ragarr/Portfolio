@@ -71,7 +71,7 @@ body{
 .columns{
     max-width: 1080px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(5, 1fr);
     column-gap: 5rem;
     z-index: 2;
 }
@@ -82,6 +82,7 @@ main {
     padding-top: 1rem; /* Ajusta según tu diseño */
     scrollbar-width: none; /* Oculta el scrollbar en Firefox */
     -ms-overflow-style: none; /* Oculta el scrollbar en IE/Edge */
+    grid-column: 3 / span 3;
 }
 main::-webkit-scrollbar {
     display: none; /* Oculta el scrollbar en Chrome, Safari, y Opera */
@@ -93,6 +94,7 @@ section {
 
 header{
     position: sticky;
+    grid-column: 1 / span 2;
 }
 
 @media (max-width: 768px) {
@@ -119,11 +121,17 @@ h2 {
 }
 
 h3 {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     color: whitesmoke;
     margin: 0;
     margin-bottom: 0.5rem;
 
+}
+
+h4 {
+    font-size: 1rem;
+    margin: 0;
+    margin-bottom: 0.5rem;
 }
 
 p, a {
@@ -133,6 +141,7 @@ p, a {
     margin: 0;
     margin-bottom: 1rem;
 }
+
 
 
 
@@ -217,15 +226,19 @@ nav li:hover a {
     margin : 0.2rem;
 }
 
-.project {
+.block {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(9, 1fr);
     column-gap: 1vw;
     background-color: transparent;
     transition: background-color 0.5s ease,
                 filter 0.5s ease;
     padding: 10px;
     margin-bottom: 1vw;
+}
+
+.block p{
+    font-size: 0.9rem;
 }
 
 .hovered {
@@ -242,11 +255,12 @@ nav li:hover a {
 }
 
 
-.project img {
+.block img {
     margin: 0;
+    margin-top: 0.3rem;
     width: 100%;
     height: auto;
-    grid-column: 1 / span 2;
+    grid-column: 1 / span 3;
     margin-bottom: 1rem;
     border-radius: 4px;
     border: 2px solid var(--unhiglighted-color);
@@ -254,32 +268,36 @@ nav li:hover a {
     transition: border 0.5s ease;
 }
 
-.project-info {
-    grid-column: 3 / span 5;
+.block-info {
+    grid-column: 4 / span 7;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.project-info h3 {
+.block-info h3 {
     margin: 0;
 }
+.block-info h4{
+    margin: 0;
+    margin-bottom: 0.5rem;
 
+}
 /*project link es un anchor*/
-.project-link{
+.block-link{
     text-decoration: none;
 }
 
 
 /*project tags es un ul*/
-.project-tags{
+.block-tags{
     list-style: none;
     padding: 0;
     display: flex;
     flex-wrap: wrap;
 }
 
-.project-tag {
+.block-tag {
     background-color: var(--tag-background-color);
     color: var(--tag-text-color);
     padding: 0.2rem 0.5rem;
@@ -289,4 +307,13 @@ nav li:hover a {
     font-size: 0.8rem;
     font-family: "Fira Mono", monospace;
     font-weight: 500;
+}
+
+
+.experience-date {
+    grid-column: 1 / span 3;
+    font-size: 0.8rem;
+    color: var(--text-color);
+    margin: 0;
+    margin-bottom: 0.5rem;
 }

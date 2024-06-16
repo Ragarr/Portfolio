@@ -66,15 +66,15 @@ let main = document.querySelector("main");
 main.addEventListener("scroll", function (e) {
     // obtener el scroll actual dentro del main
     let scroll = main.scrollTop;
-    const margin = 100;
+    const margin = 120;
 
     sections.forEach((section) => {
         let sectionTop = section.offsetTop;
         let sectionHeight = section.clientHeight;
 
         if (
-            scroll >= sectionTop &&
-            scroll < sectionTop + sectionHeight - margin
+            scroll >= sectionTop - margin &&
+            scroll < sectionTop + sectionHeight 
         ) {
             let section_id = "#" + section.id;
             let link = document.querySelector(`a[href="${section_id}"]`);
@@ -86,16 +86,16 @@ main.addEventListener("scroll", function (e) {
     });
 });
 
-const projects = document.querySelectorAll(".project");
+const blocks = document.querySelectorAll(".block");
 
-projects.forEach((project) => {
+blocks.forEach((project) => {
     project.addEventListener("mouseover", function (e) {
         // get the parent until its a project div
         let target = e.target;
-        while (!target.classList.contains("project")) {
+        while (!target.classList.contains("block")) {
             target = target.parentElement;
         }
-        projects.forEach((project) => {
+        blocks.forEach((project) => {
             if (project !== target) {
                 project.classList.add("not-hovered");
             }
@@ -104,9 +104,9 @@ projects.forEach((project) => {
     });
 });
 
-projects.forEach((project) => {
+blocks.forEach((project) => {
     project.addEventListener("mouseout", function (e) {
-        projects.forEach((project) => {
+        blocks.forEach((project) => {
             project.classList.remove("not-hovered");
             project.classList.remove("hovered");
         });
