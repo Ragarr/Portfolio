@@ -24,7 +24,7 @@
     --background-color: rgb(18, 22, 40);
     --circle-color: rgba(115, 133, 152, 0.2);
     --text-color: rgb(175, 177, 177);
-    --accent-color: rgb(28, 179, 200);
+    --accent-color: rgb(140, 217, 228);
     --box-color: rgba(20, 109, 121, 0.1);
     --unhiglighted-color: rgba(49, 49, 49, 1);
     --higlighted-color: rgb(17, 98, 109);
@@ -33,7 +33,7 @@
 }
 
 html {
-    font-family: "Cascadia Code", sans-serif;
+    font-family: Inter, sans-serif;
     background-color: var(--background-color);
     transition : background-color 0.5s;
     margin: 0;
@@ -112,14 +112,22 @@ h1 {
 
 h2 {
     font-size: 1.5rem;
-    color: var(--accent-color);
+    color: whitesmoke;
     margin: 0;
     margin-bottom: 0.5rem;
 }
 
+h3 {
+    font-size: 1.15rem;
+    color: whitesmoke;
+    margin: 0;
+    margin-bottom: 0.5rem;
+
+}
+
 p, a {
-    font-size: 1.1rem;
-    font-family:     "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 1rem;
+    font-family:   Inter, sans-serif;
     color: var(--text-color);
     margin: 0;
     margin-bottom: 1rem;
@@ -219,16 +227,16 @@ nav li:hover a {
     margin-bottom: 1vw;
 }
 
-.project-hovered {
+.hovered {
     background-color: var(--box-color);
     border-radius: 5px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
-.project-hovered img {
+.hovered img {
     border: 2px solid var(--accent-color) !important; 
 }
 
-.project-not-hovered {
+.not-hovered {
     filter: opacity(0.5);
 }
 

@@ -97,18 +97,18 @@ projects.forEach((project) => {
         }
         projects.forEach((project) => {
             if (project !== target) {
-                project.classList.add("project-not-hovered");
+                project.classList.add("not-hovered");
             }
         });
-        target.classList.add("project-hovered");
+        target.classList.add("hovered");
     });
 });
 
 projects.forEach((project) => {
     project.addEventListener("mouseout", function (e) {
         projects.forEach((project) => {
-            project.classList.remove("project-not-hovered");
-            project.classList.remove("project-hovered");
+            project.classList.remove("not-hovered");
+            project.classList.remove("hovered");
         });
     });
 });
