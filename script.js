@@ -90,6 +90,11 @@ const blocks = document.querySelectorAll(".block");
 
 blocks.forEach((project) => {
     project.addEventListener("mouseover", function (e) {
+        // if is in mobile, don't add the hover effect
+        if (window.innerWidth < 768) {
+            return;
+        }
+
         // get the parent until its a project div
         let target = e.target;
         while (!target.classList.contains("block")) {
@@ -106,6 +111,10 @@ blocks.forEach((project) => {
 
 blocks.forEach((project) => {
     project.addEventListener("mouseout", function (e) {
+        // if is in mobile, don't remove the hover effect
+        if (window.innerWidth < 768) {
+            return;
+        }
         blocks.forEach((project) => {
             project.classList.remove("not-hovered");
             project.classList.remove("hovered");
