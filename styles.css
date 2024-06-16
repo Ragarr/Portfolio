@@ -30,6 +30,8 @@
     --higlighted-color: rgb(17, 98, 109);
     --tag-background-color: rgba(28, 179, 200, 0.2);
     --tag-text-color: rgb(28, 179, 200);
+    --scroll-bar-color: rgb(140, 217, 228);
+    --scroll-bar-thumb-color: rgb(17, 98, 109);
 }
 
 html {
@@ -74,6 +76,26 @@ body{
     grid-template-columns: repeat(5, 1fr);
     column-gap: 5rem;
     z-index: 2;
+}
+
+.scroll-bar {
+    width: 0.7%;
+    height: 100%;
+    background-color: var(--scroll-bar-color);
+    position: fixed;
+    top: 0;
+    left: 99.3%;
+    z-index: 1;
+    box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.scroll-bar-thumb {
+    width: 100%;
+    background-color: var(--scroll-bar-thumb-color);
+    cursor: pointer;
+    position: absolute;
+    border-radius: 10px;
 }
 
 main {

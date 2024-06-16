@@ -112,3 +112,63 @@ blocks.forEach((project) => {
         });
     });
 });
+
+
+// dibujar una barra de scroll en el body en función del scroll del main
+let scroll_bar = document.querySelector(".scroll-bar");
+let scroll_bar_thumb = document.querySelector(".scroll-bar-thumb");
+let thumb_height = (main.clientHeight / main.scrollHeight) * 100;
+
+scroll_bar_thumb.style.height = `${thumb_height}%`;
+
+// evitar que el thumb sea más grande que la barra o más pequeño que 10%
+thumb_height = Math.max(thumb_height, 10);
+
+main.addEventListener("scroll", function (e) {
+    let scroll = main.scrollTop;
+    let max_scroll = main.scrollHeight - main.clientHeight;
+
+    // evitar que el thumb salga por arriba o por abajo
+    let thumb_top = (scroll / max_scroll) * (100 - thumb_height);
+
+    scroll_bar_thumb.style.height = `${thumb_height}%`;
+    scroll_bar_thumb.style.top = `${thumb_top}%`;
+});
+
+scroll_bar.addEventListener("click", function (e) {
+    if (e.target === scroll_bar_thumb) {
+        return;
+    }
+    let y = e.clientY;
+    let y_percent = (y / window.innerHeight) * 100;
+
+    let scroll = (y_percent / 100) * (main.scrollHeight - main.clientHeight);
+
+    main.scrollTo({ top: scroll, behavior: 'smooth' });
+    console.log(y_percent);
+});
+
+
+let isDragging = false;
+
+scroll_bar_thumb.addEventListener("mousedown", function (e) {
+    e.preventDefault();
+    isDragging = true;
+});
+
+document.addEventListener("mousemove", function (e) {
+    e.preventDefault();
+    if (isDragging) {
+        let y = e.clientY;
+        let y_percent = (y / window.innerHeight) * 100;
+
+        let scroll = (y_percent / 100) * (main.scrollHeight - main.clientHeight);
+
+        main.scrollTo({ top: scroll, behavior: 'auto' });
+    }
+});
+
+document.addEventListener("mouseup", function (e) {
+    isDragging = false;
+});
+
