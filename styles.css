@@ -29,7 +29,7 @@
     --unhiglighted-color: rgba(49, 49, 49, 1);
     --higlighted-color: rgb(17, 98, 109);
     --tag-background-color: rgba(28, 179, 200, 0.2);
-    --tag-text-color: rgb(28, 179, 200);
+    --tag-text-color: rgb(111, 218, 230);
     --scroll-bar-color: rgb(140, 217, 228);
     --scroll-bar-thumb-color: rgb(17, 98, 109);
 }
@@ -114,19 +114,16 @@ section {
     margin-bottom: 7rem;
 }
 
+.section-header{
+    display: none;
+}
+
 header{
     position: sticky;
     grid-column: 1 / span 2;
 }
 
-@media (max-width: 768px) {
-    .columns {
-        grid-template-columns: 1fr;
-        margin-left: 1rem;
-        margin-right: 1rem;
-    }
-    
-}
+
 h1 {
     font-family: "Fira Mono", monospace;
     font-size: 3rem;
@@ -338,4 +335,84 @@ nav li:hover a {
     color: var(--text-color);
     margin: 0;
     margin-bottom: 0.5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+    .columns {
+        display: flex;
+        flex-direction: column;
+    }
+    .scroll-bar {
+        display: none;
+    }
+    body{
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-top: 3rem;
+    }
+
+    h1{
+        font-size: 2.5rem;
+    }
+    h2{
+        font-size: 1.2rem;
+    }
+
+    nav{
+        display: none;
+    }
+    header{
+        position:relative;
+    }
+    .contact{
+        position: relative;
+    }
+    .contact ul li{
+        margin-left: 0.5rem;
+    }
+
+    main{
+        max-height: none;
+    }
+
+    .section-header{
+        display: block;
+    }
+
+    .block{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        margin-bottom: 5vh;
+    }
+
+    .block img{
+        grid-row: 3;
+        grid-column: 1;
+        max-width: 40vw;
+    }
+
+    .block-info{
+        grid-row: 2;
+        grid-column: 1;
+    }
+
+    .experience-date{
+        grid-column: 1;
+        grid-row: 1;
+        height: fit-content;
+    }
 }
