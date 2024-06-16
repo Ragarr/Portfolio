@@ -104,6 +104,7 @@ header{
     
 }
 h1 {
+    font-family: "Fira Mono", monospace;
     font-size: 3rem;
     color: var(--accent-color);
     margin: 0;
