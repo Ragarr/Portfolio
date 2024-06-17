@@ -32,6 +32,7 @@
     --tag-text-color: rgb(111, 218, 230);
     --scroll-bar-color: rgb(140, 217, 228);
     --scroll-bar-thumb-color: rgb(17, 98, 109);
+    --h2-color: whitesmoke;
 }
 
 html {
@@ -60,6 +61,8 @@ body{
         radial-gradient(circle at 30% 100%, var(--circle-color) 0%, transparent 500px),
         radial-gradient(circle at 90% 80%, var(--circle-color) 0%, transparent 250px),
         var(--background-color);
+    
+
 }
 .light {
     position: absolute;
@@ -105,6 +108,7 @@ main {
     scrollbar-width: none; /* Oculta el scrollbar en Firefox */
     -ms-overflow-style: none; /* Oculta el scrollbar en IE/Edge */
     grid-column: 3 / span 3;
+    scroll-behavior: smooth;
 }
 main::-webkit-scrollbar {
     display: none; /* Oculta el scrollbar en Chrome, Safari, y Opera */
@@ -134,14 +138,14 @@ h1 {
 
 h2 {
     font-size: 1.5rem;
-    color: whitesmoke;
+    color: var(--h2-color);
     margin: 0;
     margin-bottom: 0.5rem;
 }
 
 h3 {
     font-size: 1.1rem;
-    color: whitesmoke;
+    color: var(--h2-color);
     margin: 0;
     margin-bottom: 0.5rem;
 
@@ -159,9 +163,23 @@ p, a {
     color: var(--text-color);
     margin: 0;
     margin-bottom: 1rem;
+    text-decoration: none;
 }
 
 
+b{
+    font-weight: 700;
+    color: var(--h2-color);
+}
+
+a b{
+    color: var(--h2-color);
+    transition: color 0.3s ease;
+}
+
+a b:hover{
+    color: var(--accent-color);
+}
 
 
 nav {
