@@ -287,6 +287,15 @@ nav li:hover a {
     transition: border 0.5s ease;
 }
 
+.block-info li{
+    margin-right: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.block-info ul{
+    margin-top: 0;
+}
+
 .block-info {
     grid-column: 4 / span 7;
     display: flex;
