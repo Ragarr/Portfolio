@@ -1,9 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Raul Aguilar</title>
+        <meta
+            name="description"
+            content="Portfolio de Raúl Aguilar, estudiante de Ingeniería Informática. Centrado en la inteligencia artificial y la programación orientada al rendimiento."
+        />
+        <title>Portfolio de Raul Aguilar</title>
+        <link rel="canonical" href="https://ragarr.com" />
+        <link
+            rel="icon"
+            href="/media/favicon-16x16.png"
+            sizes="16x16"
+            type="image/png"
+        />
+        <link
+            rel="icon"
+            href="/media/favicon-32x32.png"
+            sizes="30x32"
+            type="image/png"
+        />
+        <link
+            rel="apple-touch-icon"
+            href="/media/favicon-32x32.png"
+            type="image/png"
+        />
         <link rel="preconnect" href="https://rsms.me/" />
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
         <link rel="stylesheet" href="styles.css" />
@@ -58,7 +80,7 @@
                         </li>
                         <li>
                             <a
-                                href="https://www.linkedin.com/in/ra%C3%B9l-aguilar-arroyo-208462221/"
+                                href="www.linkedin.com/in/raul-aguilar-arroyo-208462221"
                                 target="_blank"
                             >
                                 <svg
@@ -129,55 +151,71 @@
             </header>
             <main>
                 <section id="about">
-                    <h2 class = section-header>Sobre mi</h2>
+                    <h2 class="section-header">Sobre mi</h2>
                     <p>
-                        Soy un apasionado de explorar nuevas tecnologías en
-                        la informática y expandir mis conocimientos y
-                        habilidades a través de proyectos personales. Me gusta
-                        explorar en el mundo de la inteligencia artificial y la
-                        programación orientada al rendimiento. Disfruto de
-                        enfrentarme a nuevos problemas para resolverlos. Me
-                        motiva el desafío de adquirir nuevas habilidades y
-                        conocimientos.
+                        Soy un apasionado de explorar nuevas tecnologías en la
+                        informática y expandir mis conocimientos y habilidades a
+                        través de proyectos personales. Me gusta explorar en el
+                        mundo de la inteligencia artificial y la programación
+                        orientada al rendimiento. Disfruto de enfrentarme a
+                        nuevos problemas para resolverlos. Me motiva el desafío
+                        de adquirir nuevas habilidades y conocimientos.
                     </p>
                 </section>
                 <section id="projects">
-                    <h2 class = section-header>Proyectos</h2>
+                    <h2 class="section-header">Proyectos</h2>
                     <a
                         class="block-link"
                         href="https://github.com/Ragarr/Criptografia_2023-24"
                         target="_blank"
                     >
                         <div class="block">
-                            <img src="/media/cripto.jpeg" />
+                            <img
+                                src="/media/cripto.jpeg"
+                                alt="imagen del proceso de encripatacion"
+                                width="394"
+                                height="182"
+                            />
                             <div class="block-info">
-                                <h3>Encriptador de Areas de Imagenes</h3>
-                                <h4>Proyecto de Criptografia</h4>
+                                <h3>Encriptador de Áreas de Imágenes</h3>
+                                <h4>Proyecto de Criptografía</h4>
                                 <p>
-                                    La aplicación consiste en un sistema que
-                                    permite encriptar secciones específicas de
-                                    imágenes de forma local en el lado del
-                                    cliente, y luego almacenar estas imágenes
+                                    Esta aplicación permite encriptar secciones
+                                    específicas de imágenes en el lado del
+                                    cliente. Luego, almacena las imágenes
                                     parcialmente encriptadas en un servidor.
                                 </p>
                                 <p>
-                                    La arquitectura de la aplicación emplea
-                                    diversos mecanismos criptográficos para
-                                    proteger la información: almacenamiento de
-                                    hashes de contraseñas usando Scrypt y salt
-                                    aleatorio, cifrado simétrico de imágenes con
-                                    AES-CTR y claves derivadas de la contraseña
-                                    mediante PBKDF2-HMAC, MACs de imágenes con
-                                    HMAC-SHA256 para asegurar la integridad en
-                                    la comunicación cliente-servidor, y una
-                                    infraestructura de clave pública con
-                                    certificados digitales para firmar las
-                                    imágenes en el cliente y verificar las
-                                    firmas en el servidor, considerando que con
-                                    una implementación completa con autoridades
-                                    reales y separación física de componentes,
-                                    el sistema sería completamente seguro.
+                                    La arquitectura de la aplicación utiliza
+                                    varios mecanismos de criptografía para
+                                    proteger la información:
                                 </p>
+                                <ul>
+                                    <li>
+                                        Almacenamiento de contraseñas con hashes
+                                        usando Scrypt y salt aleatorio.
+                                    </li>
+                                    <li>
+                                        Cifrado de imágenes con AES-CTR y claves
+                                        derivadas de contraseñas mediante
+                                        PBKDF2-HMAC.
+                                    </li>
+                                    <li>
+                                        Verificación de integridad de imágenes
+                                        con HMAC-SHA256.
+                                    </li>
+                                    <li>
+                                        Uso de certificados digitales para
+                                        firmar imágenes en el cliente y
+                                        verificar las firmas en el servidor.
+                                    </li>
+                                </ul>
+                                <p>
+                                    Con una implementación completa, usando
+                                    autoridades reales y separación física de
+                                    componentes, el sistema sería seguro.
+                                </p>
+
                                 <ul class="block-tags">
                                     <li class="block-tag">Python</li>
                                     <li class="block-tag">Criptography</li>
@@ -193,7 +231,12 @@
                         target="_blank"
                     >
                         <div class="block">
-                            <img src="/media/mario.png" />
+                            <img
+                                src="/media/mario.png"
+                                alt="pagina de inicio del videojuego mario bros"
+                                width="413"
+                                height="320"
+                            />
                             <div class="block-info">
                                 <h3>Mario Bros</h3>
                                 <h4>Proyecto de Videojuegos</h4>
@@ -202,10 +245,6 @@
                                     Se trata de una recreación del primer nivel
                                     del Mario Bros original, hecho en Python
                                     haciendo uso de la librería grafica Pyxel.
-                                    Es además el proyecto final de la asignatura
-                                    programación de 1º de ingeniería informática
-                                    de la uc3m. Todo esta escrito y comentado en
-                                    español.
                                 </p>
                                 <ul class="block-tags">
                                     <li class="block-tag">Python</li>
@@ -218,7 +257,7 @@
                     </a>
                 </section>
                 <section id="experience">
-                    <h2 class = section-header>Experiencia / Estudios</h2>
+                    <h2 class="section-header">Experiencia / Estudios</h2>
                     <a
                         class="block-link"
                         href="https://www.uc3m.es/grado/informatica"
@@ -237,14 +276,23 @@
                                 </p>
                                 <p>
                                     He podido profundizar en distintos ámbitos:
-                                    la Computación orientada a la Inteligencia
-                                    Artificial; la Ingeniería de Computadoras
-                                    dirigida al desarrollo de hardware y
-                                    software distribuido; y los Sistemas de
-                                    Información referidos al tratamiento de
-                                    datos e integración del software
-                                    empresarial.
                                 </p>
+                                <ul>
+                                    <li>
+                                        Computación orientada a la
+                                        Inteligencia Artificial
+                                    </li>
+                                    <li>
+                                        Ingeniería de Computadoras dirigida al
+                                        desarrollo de hardware, software
+                                        distribuido y programacion orientada al rendimiento
+                                    </li>
+                                    <li>
+                                        Sistemas de Información referidos al
+                                        tratamiento de datos e integración del
+                                        software empresarial
+                                    </li>
+                                </ul>
 
                                 <ul class="block-tags">
                                     <li class="block-tag">Python</li>
@@ -272,28 +320,34 @@
                                 <h3>Becario Hiperautomatización - IA</h3>
                                 <h4>300 Digital Evolution Consulting</h4>
                                 <p>
-                                    Este puesto de formación se centró en
-                                    habilidades operativas en el campo de la
-                                    automatización con Inteligencia Artificial,
-                                    con especial atención a la integración de
-                                    tecnologías de Microsoft Azure.
+                                    En este puesto de formación, aprendí
+                                    habilidades en automatización e Inteligencia
+                                    Artificial, enfocándome en tecnologías de
+                                    Microsoft Azure.
                                 </p>
                                 <p>
-                                    Durante mis prácticas, participé en diversos
-                                    proyectos, incluyendo la implementación de
-                                    un modelo de lenguaje GPT-4 especializado en
-                                    la documentación de recursos humanos para
-                                    usos internos de la compañía cliente.
-                                    También trabajé en la indexación semántica
-                                    de documentos utilizando Azure Cognitive
-                                    Search y en la recuperación de documentos y
-                                    citas mediante búsqueda de vectores
-                                    semánticos, lo que permitió proporcionar
-                                    referencias y fuentes fiables en las
-                                    interacciones con el modelo. Además,
-                                    implementé servicios web en la nube de Azure
-                                    y desarrollé APIs REST.
+                                    Durante mis prácticas, participé en varios
+                                    proyectos:
                                 </p>
+                                <ul>
+                                    <li>
+                                        Implementé un modelo de lenguaje GPT-4
+                                        para la documentación de recursos
+                                        humanos, utilizado internamente por
+                                        nuestros clientes.
+                                    </li>
+                                    <li>
+                                        Trabajé en la indexación de documentos
+                                        con Azure Cognitive Search y en la
+                                        búsqueda de información utilizando
+                                        vectores semánticos, mejorando la
+                                        precisión en las respuestas del modelo.
+                                    </li>
+                                    <li>
+                                        Desarrollé servicios web en la nube de
+                                        Azure y creé APIs REST.
+                                    </li>
+                                </ul>
 
                                 <ul class="block-tags">
                                     <li class="block-tag">Azure</li>
